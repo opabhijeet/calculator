@@ -9,6 +9,7 @@ body {
     background-color: black ;
     margin-top: 14vh;
     border-radius: 2%;
+    box-shadow: 10px 10px 20px black;
 }
 #display{
     height: 20%;
