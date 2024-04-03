@@ -2,7 +2,7 @@ let previous = null;
 let sign = null;
 let current = "";
 let decimal = null;
-
+let eql = null;
 toDisplay = document.querySelector("#display");
 
 rest = document.querySelector("#rest");
@@ -26,6 +26,7 @@ function handle(e){
         return;
     }
     if(e.target.className.includes("num")){
+        if(eql) return;
         let curtext = e.target.textContent;
         if(curtext==="."){
             if(decimal) return;
@@ -34,7 +35,8 @@ function handle(e){
         current+=curtext;
     }
     if(e.target.className.includes("op")){
-        if(e.target.textContent !== "=") decimal=null;
+        if(e.target.textContent !== "=") eql=decimal=null;
+        else eql = true;
         if(sign !== null) operate();
         if(previous === null){
             if(+current === 0) return;
@@ -59,6 +61,8 @@ function operate(){
         case "/":
             previous/= +current;
             break;
+        default:
+            sign = null;
     }
     current="";
 }
