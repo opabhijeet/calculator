@@ -22,6 +22,7 @@ function handle(e){
         sign=null;
         current="";
         decimal=null;
+        eql=null;
         display();
         return;
     }
